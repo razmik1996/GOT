@@ -1,3 +1,7 @@
+import math
+import random
+import enum
+
 class Color(enum.Enum):
     RED = 1
     GREEN = 2

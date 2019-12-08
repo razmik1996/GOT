@@ -1,7 +1,4 @@
 #!/usr/bin/env python
-import math
-import enum
-import random
 import util
 
 
@@ -24,8 +21,8 @@ class Player:
     __id = ""
     __name = ""
     __rating = 0
-    __country = Country.ENGLAND
-    __color = Color.RED
+    __country = util.Country.ENGLAND
+    __color = util.Color.RED
 
     def __init__(self, id, name, rating, country, color):
         self.__id = id
@@ -114,10 +111,10 @@ class Soldier:
     '''
 
     ''' Where does current soldier stand?'''
-    __location = Location(0,0)
+    __location = util.Location(0,0)
 
     ''' Which direction does he face?'''
-    __direction = Direction.NORTH
+    __direction = util.Direction.NORTH
 
     '''Number from [0..100] where 0 is dead.'''
     __health = 100
@@ -129,7 +126,7 @@ class Soldier:
     __defense = 0
     
     '''Solder knows to which player it belongs.'''
-    __player = Player("", "", 0, Country.ENGLAND, Color.RED)
+    __player = Player("", "", 0, util.Country.ENGLAND, util.Color.RED)
 
     def __init__(self, player, location, direction,\
          health, attack, defense):
@@ -195,28 +192,28 @@ class Soldier:
     
     '''Turns the soldier in a random direction.'''
     def turnRandom(self):
-        self.__direction = getRandomDirection()
+        self.__direction = util.getRandomDirection()
 
     '''Moves soldier in the direction it faces now.'''
     def move(self):
-        if self.__direction == Direction.NORTH:
+        if self.__direction == util.Direction.NORTH:
             self.__location.setY(self.__location.getY() - 1)
-        elif self.__direction == Direction.SOUTH:
+        elif self.__direction == util.Direction.SOUTH:
             self.__location.setY(self.__location.getY() + 1)
-        elif self.__direction == Direction.EAST:
+        elif self.__direction == util.Direction.EAST:
             self.__location.setX(self.__location.getX() + 1)
-        elif self.__direction == Direction.WEST:
+        elif self.__direction == util.Direction.WEST:
             self.__location.setX(self.__location.getX() - 1)
-        elif self.__direction == Direction.EASTNORTH:
+        elif self.__direction == util.Direction.EASTNORTH:
             self.__location.setY(self.__location.getY() - 1)
             self.__location.setX(self.__location.getX() + 1)
-        elif self.__direction == Direction.EASTSOUTH:
+        elif self.__direction == util.Direction.EASTSOUTH:
             self.__location.setY(self.__location.getY() + 1)
             self.__location.setX(self.__location.getX() + 1)
-        elif self.__direction == Direction.WESTNORTH:
+        elif self.__direction == util.Direction.WESTNORTH:
             self.__location.setY(self.__location.getY() - 1)
             self.__location.setX(self.__location.getX() - 1)
-        elif self.__direction == Direction.WESTSOUTH:
+        elif self.__direction == util.Direction.WESTSOUTH:
             self.__location.setY(self.__location.getY() + 1)
             self.__location.setX(self.__location.getX() - 1)
         else:
@@ -268,15 +265,15 @@ class Mag(Soldier):
 
 if __name__ == "__main__":
 
-    s1 = Soldier(Player("1234", "Levon", 100, Country.ARMENIA, Color.RED), \
-        Location(3,4), getRandomDirection(), 100, 150, 80)
-    s2 = Soldier(Player("1235", "Raz", 100, Country.ENGLAND, Color.GREEN), \
-        Location(5,12), getRandomDirection(), 100, 120, 90)
+    s1 = Soldier(Player("1234", "Levon", 100, util.Country.ARMENIA, util.Color.RED), \
+        util.Location(3,4), util.getRandomDirection(), 100, 150, 80)
+    s2 = Soldier(Player("1235", "Raz", 100, util.Country.ENGLAND, util.Color.GREEN), \
+        util.Location(5,12), util.getRandomDirection(), 100, 120, 90)
 
     s1.printSoldier() 
     s2.printSoldier()
 
-    sw = Swordsman(Player("1234", "Arthur", 100, Country.FRANCE, Color.BLUE), \
-        Location(10,54), getRandomDirection(), 199, 128, 88)
+    sw = Swordsman(Player("1234", "Arthur", 100, util.Country.FRANCE, util.Color.BLUE), \
+        util.Location(10,54), util.getRandomDirection(), 199, 128, 88, 2)
     sw.printSoldier()
     
