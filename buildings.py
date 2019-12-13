@@ -27,6 +27,7 @@ class Buildings:
     __atackDistance = 5
     __defense = 0
     
+
     def __init__(self, player, location, health, atack, spawnTime,\
         defense):
 
@@ -54,6 +55,10 @@ class Buildings:
 
     def getDefense(self):
         return self.__defense
+
+    def showBuilding(self):
+        pass
+
     
     def setPlayer(self, player):
         self.__player = player
@@ -74,24 +79,42 @@ class Buildings:
         self.__defense = defense
     
 class ArcherBuilding(Buildings):
+    __image = "Sprites/Towers/ArcherTower.png"
+
     def __init__(self, player, location, health, atack, spawnTime, defense):
         Buildings.__init__(self, player, location, health, atack, spawnTime, defense)
- 
+
     def __str__(self):
         return "This is Archer house hp = " + str(self.__health) + " Spawn time = " + str(self.__spawnTime)
- 
+
+    def getImage(self):
+        return self.__image
+
+    def showBuilding(self):
+        pass
+
+
+    
 class SwordsmanBuilding(Buildings):
+    __image = "Sprites/Towers/Tower2.png"
+
     def __init__(self, player, location, health, atack, spawnTime, defense):
         Buildings.__init__(self, player, location, health, atack, spawnTime, defense)
  
     def __str__(self):
         return "This is Swiordsman house hp = " + str(self.__health) + " Spawn time = " + str(self.__spawnTime)
- 
+
+    def getImage(self):
+        return self.__image
+
 class MagBuilding(Buildings):
+    __image = "Sprites/Towers/Tower3.png"
+
     def __init__(self, player, location, health, atack, spawnTime, defense):
         Buildings.__init__(self, player, location, health, atack, spawnTime, defense)
  
     def __str__(self):
         return "This is Mags house hp = " + str(self.__health) + " Spawn time = " + str(self.__spawnTime)
 
-
+    def getImage(self):
+        return self.__image
