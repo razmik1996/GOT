@@ -74,11 +74,13 @@ imgMagRight = imgMag.subsample(-5, 5)
 
 ws = root.winfo_screenwidth()
 hs = root.winfo_screenheight()
+perPxlx = ws/100
+perPxly = hs/100
 
 print ws, hs
 
 root.attributes("-fullscreen", True)
-canvas = Canvas(root)
+canvas = Canvas(root, border = 0)
 root.title("Game Of Thrones")
 canvas.pack(expand = YES, fill = BOTH)
 
@@ -95,26 +97,28 @@ canvas.create_image(0, 0, image = backgroundImage, anchor = NW)
 #canvasInner.create_image(0, 0, image = frameBg, anchor = NW)
 canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, height = 14*hs/20)
 
-
-imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormal.png")
-imgPlayNormal = imgPlayNormal.subsample(3, 3)
+imgPlayNormal = Image.open("Sprites/GUI/playNormal.png")
+imgPlayNormal = imgPlayNormal.resize((17 * perPxlx, 25 * perPxly))
+imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
 imgPlayHower = PhotoImage(file = "Sprites/GUI/playHower.png")
 imgPlayHower = imgPlayHower.subsample(3, 5)
 
-imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormal.png")
-imgSettingsNormal = imgSettingsNormal.subsample(3, 3)
+imgSettingsNormal = Image.open("Sprites/GUI/settingsNormal.png")
+imgSettingsNormal = imgSettingsNormal.resize((17 * perPxlx, 25 * perPxly))
+imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
 imgSettingsHower = PhotoImage(file = "Sprites/GUI/settingsHover.png")
 imgSettingsHower = imgSettingsHower.subsample(3, 5)
 
-imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormal.png")
-imgQuitNormal = imgQuitNormal.subsample(3, 3)
+imgQuitNormal = Image.open("Sprites/GUI/quitNormal.png")
+imgQuitNormal = imgQuitNormal.resize((17 * perPxlx, 25 * perPxly))
+imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 imgQuitHower = PhotoImage(file = "Sprites/GUI/quitHover.png")
 imgQuitHower = imgQuitHower.subsample(3, 5)
 
 Button1 = Button(canvasInner, image = imgPlayNormal, border =0, command = play)
 Button1.pack(side = TOP)
 
-Button2 = Button(canvasInner, image = imgSettingsNormal, borderwidth=0)
+Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
 
 Button3 = Button(canvasInner, image = imgQuitNormal, borderwidth=0, command = exitfromgame)
