@@ -2,10 +2,9 @@
 from Tkinter import *
 from PIL import Image, ImageTk
 from player import *
-from buildings import ArcherBuilding
+from buildings import *
 from soldier import *
-
-
+from location import *
 
 def exitfromgame():
     exit()
@@ -30,9 +29,9 @@ def play():
 
     player1 = Player("1","Razmik",0,Country.ARMENIA,Color.BLUE)
     player2 = Player("2","Levon",0,Country.ENGLAND,Color.RED)
-
     location1 = Location(5,5)
 
+    #BUTTONS________________________________________________
     archerBuild1 = Button(canvasLeft, image = imgArcherLeft)
     archerBuild1.pack(side = TOP)
 
@@ -50,6 +49,38 @@ def play():
 
     magBuild2 = Button(canvasRight, image = imgMagRight)
     magBuild2.pack(side = TOP)
+    #BUTTONSEND_______________________________________________
+
+    #Build Buildings__________________________________________
+    archerBuildingP1 = ArcherBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = archerBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildArcher, anchor=NW)
+
+    archerBuildingP2 = ArcherBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = archerBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildArcher, anchor=NW)
+
+    swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = swordsmanBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildSwordsman, anchor=NW)
+
+    swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = swordsmanBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildSwordsman, anchor=NW)
+
+    magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = magBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildMag, anchor=NW)
+
+    magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+        10, 5, 20)
+    BuildLocal = magBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildMag, anchor=NW)
 
     def dispShow(event):
         canvasplay.pack_forget()
@@ -59,7 +90,25 @@ def play():
 
 root = Tk()
 
+ws = root.winfo_screenwidth()
+hs = root.winfo_screenheight()
+perPxlx = ws/100
+perPxly = hs/100
 
+#BUILDINGS IMAGES OPENING____________________________________________
+imgBuildArcher = Image.open("Sprites/Towers/ArcherTower.png")
+imgBuildArcher = imgBuildArcher.resize((8 * perPxlx, 13 * perPxly))
+imgBuildArcher = ImageTk.PhotoImage(imgBuildArcher)
+
+imgBuildSwordsman = Image.open("Sprites/Towers/Tower2.png")
+imgBuildSwordsman = imgBuildSwordsman.resize((8 * perPxlx, 13 * perPxly))
+imgBuildSwordsman = ImageTk.PhotoImage(imgBuildSwordsman)
+
+imgBuildMag = Image.open("Sprites/Towers/Tower3.png")
+imgBuildMag = imgBuildMag.resize((8 * perPxlx, 13 * perPxly))
+imgBuildMag = ImageTk.PhotoImage(imgBuildMag)
+#END BULD IMAGES_____________________________________________________
+#SOLDER IMAGES OPENING________________________________________________
 imgArcher = PhotoImage(file = "Sprites/Enemy1/Idle/Idle_000.png")
 imgArcherLeft = imgArcher.subsample(5, 5)
 imgArcherRight = imgArcher.subsample(-5, 5)
@@ -71,13 +120,6 @@ imgSwordsmanRight = imgSwordsman.subsample(-5, 5)
 imgMag = PhotoImage(file = "Sprites/Enemy2/Idle/Idle_000.png")
 imgMagLeft = imgMag.subsample(5, 5)
 imgMagRight = imgMag.subsample(-5, 5)
-
-ws = root.winfo_screenwidth()
-hs = root.winfo_screenheight()
-perPxlx = ws/100
-perPxly = hs/100
-
-print ws, hs
 
 root.attributes("-fullscreen", True)
 canvas = Canvas(root, border = 0)
