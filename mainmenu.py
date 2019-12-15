@@ -72,21 +72,33 @@ def play():
     swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalSwordsmanP1 = swordsmanBuildingP1.getLocation()
+    locationFarSwToArchP1 = BuildLocalSwordsmanP1.getY() - BuildLocalArcherP1.getY()
+    while(locationFarSwToArchP1 in range(-10, 10)):
+        BuildLocalSwordsmanP1.setY(random.randint(25, 85))
+        locationFarSwToArchP1 = BuildLocalSwordsmanP1.getY() - BuildLocalArcherP1.getY()
     canvasplay.create_image(perPxlx * BuildLocalSwordsmanP1.getX(), perPxly * BuildLocalSwordsmanP1.getY(), image = imgBuildSwordsman, anchor=NW)
 
     swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalSwordsmanP2 = swordsmanBuildingP2.getLocation()
+    locationFarSwToArchP2 = BuildLocalSwordsmanP2.getY() - BuildLocalArcherP2.getY()
+    while(locationFarSwToArchP2 in range(-10, 10)):
+        BuildLocalSwordsmanP2.setY(random.randint(25, 85))
+        locationFarSwToArchP2 = BuildLocalSwordsmanP2.getY() - BuildLocalArcherP2.getY()
     canvasplay.create_image(perPxlx * BuildLocalSwordsmanP2.getX(), perPxly * BuildLocalSwordsmanP2.getY(), image = imgBuildSwordsman, anchor=NW)
 
     magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalMagP1 = magBuildingP1.getLocation()
+    while((BuildLocalMagP1.getY() - BuildLocalArcherP1.getY() <= 10) and (BuildLocalMagP1.getY() - BuildLocalArcherP1.getY() >= -10)):
+        BuildLocalMagP1.setY(random.randint(25, 85))
     canvasplay.create_image(perPxlx * BuildLocalMagP1.getX(), perPxly * BuildLocalMagP1.getY(), image = imgBuildMag, anchor=NW)
 
     magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalMagP2 = magBuildingP2.getLocation()
+    while((BuildLocalMagP2.getY() - BuildLocalArcherP2.getY()) <= 5 and (BuildLocalMagP2.getY() - BuildLocalArcherP2.getY()) >= -5):
+        BuildLocalMagP2.setY(random.randint(25, 85))
     canvasplay.create_image(perPxlx * BuildLocalMagP2.getX(), perPxly * BuildLocalMagP2.getY(), image = imgBuildMag, anchor=NW)
 
     def dispShow(event):
@@ -149,15 +161,15 @@ canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, heig
 
 #BUTTONS IMAGE__________________________________________________
 imgPlayNormal = Image.open("Sprites/GUI/playNormalMenu.png")
-imgPlayNormal = imgPlayNormal.resize((19 * perPxlx, 26 * perPxly))
+imgPlayNormal = imgPlayNormal.resize((18 * perPxlx, int(25.5 * perPxly)))
 imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
 
 imgSettingsNormal = Image.open("Sprites/GUI/settingsNormalMenu.png")
-imgSettingsNormal = imgSettingsNormal.resize((19 * perPxlx, 26 * perPxly))
+imgSettingsNormal = imgSettingsNormal.resize((18 * perPxlx, int(25.5 * perPxly)))
 imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
 
 imgQuitNormal = Image.open("Sprites/GUI/quitNormalMenu.png")
-imgQuitNormal = imgQuitNormal.resize((19 * perPxlx, 26 * perPxly))
+imgQuitNormal = imgQuitNormal.resize((18 * perPxlx, int(25.5 * perPxly)))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 #BUTTONS IMAGE END________________________________________________
 
