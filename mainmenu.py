@@ -52,35 +52,35 @@ def play():
     #BUTTONSEND_______________________________________________
 
     #Build Buildings__________________________________________
-    archerBuildingP1 = ArcherBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+    archerBuildingP1 = ArcherBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = archerBuildingP1.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildArcher, anchor=NW)
+    BuildLocalArcherP1 = archerBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalArcherP1.getX(), perPxly * BuildLocalArcherP1.getY(), image = imgBuildArcher, anchor=NW)
 
-    archerBuildingP2 = ArcherBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+    archerBuildingP2 = ArcherBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = archerBuildingP2.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildArcher, anchor=NW)
+    BuildLocalArcherP2 = archerBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalArcherP2.getX(), perPxly * BuildLocalArcherP2.getY(), image = imgBuildArcher, anchor=NW)
 
-    swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+    swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = swordsmanBuildingP1.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildSwordsman, anchor=NW)
+    BuildLocalSwordsmanP1 = swordsmanBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalSwordsmanP1.getX(), perPxly * BuildLocalSwordsmanP1.getY(), image = imgBuildSwordsman, anchor=NW)
 
-    swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+    swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = swordsmanBuildingP2.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildSwordsman, anchor=NW)
+    BuildLocalSwordsmanP2 = swordsmanBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalSwordsmanP2.getX(), perPxly * BuildLocalSwordsmanP2.getY(), image = imgBuildSwordsman, anchor=NW)
 
-    magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(0, 100)), 100,\
+    magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = magBuildingP1.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildMag, anchor=NW)
+    BuildLocalMagP1 = magBuildingP1.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalMagP1.getX(), perPxly * BuildLocalMagP1.getY(), image = imgBuildMag, anchor=NW)
 
-    magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(0, 100)), 100,\
+    magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
         10, 5, 20)
-    BuildLocal = magBuildingP2.getLocation()
-    canvasplay.create_image(perPxlx * BuildLocal.getX(), perPxly * BuildLocal.getY(), image = imgBuildMag, anchor=NW)
+    BuildLocalMagP2 = magBuildingP2.getLocation()
+    canvasplay.create_image(perPxlx * BuildLocalMagP2.getX(), perPxly * BuildLocalMagP2.getY(), image = imgBuildMag, anchor=NW)
 
     def dispShow(event):
         canvasplay.pack_forget()
