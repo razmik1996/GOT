@@ -20,15 +20,19 @@ def settings():
 
 def play():
     hide()
-    canvasplay = Canvas(root)
+    canvasplay = Canvas(root, highlightthickness=0)
     canvasplay.pack(expand = YES, fill = BOTH)
+    
+    canvasplay.create_image(0, 0, image = imgBattlefield, anchor = NW)
+
     canvasLeft = Canvas(canvasplay)
     canvasRight = Canvas(canvasplay)
 
     canvasLeft.pack(side = LEFT)
     canvasRight.pack(side = RIGHT)
 
-    canvasplay.create_rectangle(0, 0, ws, hs, fill="#ccffcc")
+    
+    #canvasplay.create_rectangle(0, 0, ws, hs)
 
     player1 = Player("1","Razmik",0,Country.ARMENIA,Color.BLUE)
     player2 = Player("2","Levon",0,Country.ENGLAND,Color.RED)
@@ -147,6 +151,11 @@ canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, heig
 imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormalMenu.png")
 imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormalMenu.png")
 imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormalMenu.png")
+
+imgBattlefield = Image.open("Sprites/battlefield.png")
+imgBattlefield = imgBattlefield.resize((ws, hs))
+imgBattlefield = ImageTk.PhotoImage(imgBattlefield)
+    
 
 Button1 = Button(canvasInner, activebackground = '#101110',
                 bg = '#101110', highlightthickness = 0,
