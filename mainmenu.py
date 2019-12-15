@@ -15,40 +15,47 @@ def show(event):
 def hide():
     canvas.pack_forget()
 
+def settings():
+    print "settings"
+
 def play():
     hide()
-    canvasplay = Canvas(root)
+    canvasplay = Canvas(root, highlightthickness=0)
     canvasplay.pack(expand = YES, fill = BOTH)
+    
+    canvasplay.create_image(0, 0, image = imgBattlefield, anchor = NW)
+
     canvasLeft = Canvas(canvasplay)
     canvasRight = Canvas(canvasplay)
 
     canvasLeft.pack(side = LEFT)
     canvasRight.pack(side = RIGHT)
 
-    canvasplay.create_rectangle(0, 0, ws, hs, fill="#ccffcc")
+    
+    #canvasplay.create_rectangle(0, 0, ws, hs)
 
     player1 = Player("1","Razmik",0,Country.ARMENIA,Color.BLUE)
     player2 = Player("2","Levon",0,Country.ENGLAND,Color.RED)
     location1 = Location(5,5)
 
     #BUTTONS________________________________________________
-    archerBuild1 = Button(canvasLeft, image = imgArcherLeft)
-    archerBuild1.pack(side = TOP)
+    archerSoldier1 = Button(canvasLeft, image = imgArcherLeft)
+    archerSoldier1.pack(side = TOP)
 
-    swordsBuild1 = Button(canvasLeft, image = imgSwordsmanLeft)
-    swordsBuild1.pack(side = TOP)
+    swordsSoldier1 = Button(canvasLeft, image = imgSwordsmanLeft)
+    swordsSoldier1.pack(side = TOP)
 
-    magBuild1 = Button(canvasLeft, image = imgMagLeft)
-    magBuild1.pack(side = TOP)
+    magSoldier1 = Button(canvasLeft, image = imgMagLeft)
+    magSoldier1.pack(side = TOP)
 
-    archerBuild2 = Button(canvasRight, image = imgArcherRight)
-    archerBuild2.pack(side = TOP)
+    archerSoldier2 = Button(canvasRight, image = imgArcherRight)
+    archerSoldier2.pack(side = TOP)
 
-    swordsBuild2 = Button(canvasRight, image = imgSwordsmanRight)
-    swordsBuild2.pack(side = TOP)
+    swordsSoldier2 = Button(canvasRight, image = imgSwordsmanRight)
+    swordsSoldier2.pack(side = TOP)
 
-    magBuild2 = Button(canvasRight, image = imgMagRight)
-    magBuild2.pack(side = TOP)
+    magSoldier2 = Button(canvasRight, image = imgMagRight)
+    magSoldier2.pack(side = TOP)
     #BUTTONSEND_______________________________________________
 
     #Build Buildings__________________________________________
@@ -122,11 +129,11 @@ imgMagLeft = imgMag.subsample(5, 5)
 imgMagRight = imgMag.subsample(-5, 5)
 
 root.attributes("-fullscreen", True)
-canvas = Canvas(root, border = 0)
+canvas = Canvas(root, border = 0, highlightthickness = 0)
 root.title("Game Of Thrones")
 canvas.pack(expand = YES, fill = BOTH)
 
-canvasInner = Canvas(canvas, border = 0, borderwidth = 0)
+canvasInner = Canvas(canvas,highlightthickness=0, border = 0, borderwidth = 0)
 
 #frameBg = Image.open("Sprites/GUI/button.png")
 #frameBg = frameBg.resize((ws, hs))
@@ -139,6 +146,34 @@ canvas.create_image(0, 0, image = backgroundImage, anchor = NW)
 #canvasInner.create_image(0, 0, image = frameBg, anchor = NW)
 canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, height = 14*hs/20)
 
+
+
+imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormalMenu.png")
+imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormalMenu.png")
+imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormalMenu.png")
+
+imgBattlefield = Image.open("Sprites/battlefield.png")
+imgBattlefield = imgBattlefield.resize((ws, hs))
+imgBattlefield = ImageTk.PhotoImage(imgBattlefield)
+    
+
+Button1 = Button(canvasInner, activebackground = '#101110',
+                bg = '#101110', highlightthickness = 0,
+                image = imgPlayNormal, border = 0, 
+                borderwidth = 0, command = play).pack(side = TOP)
+
+Button2 = Button(canvasInner, activebackground = '#2b2d2f', 
+                bg = '#2b2d2f', highlightthickness = 0, 
+                image = imgSettingsNormal, border = 0, 
+                borderwidth = 0, command = settings).pack(side = TOP)
+
+Button3 = Button(canvasInner,activebackground = '#2b2d2f',
+                bg = '#2b2d2f',highlightthickness = 0, 
+                image = imgQuitNormal, border = 0,
+                borderwidth = 0, command = exitfromgame).pack(side = TOP)
+
+
+'''
 imgPlayNormal = Image.open("Sprites/GUI/playNormal.png")
 imgPlayNormal = imgPlayNormal.resize((17 * perPxlx, 25 * perPxly))
 imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
@@ -157,13 +192,9 @@ imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 imgQuitHower = PhotoImage(file = "Sprites/GUI/quitHover.png")
 imgQuitHower = imgQuitHower.subsample(3, 5)
 
-Button1 = Button(canvasInner, image = imgPlayNormal, border =0, command = play)
-Button1.pack(side = TOP)
-
 Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
 
-Button3 = Button(canvasInner, image = imgQuitNormal, borderwidth=0, command = exitfromgame)
-Button3.pack(side = TOP)
+'''
 
 root.mainloop()
