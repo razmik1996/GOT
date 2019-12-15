@@ -5,6 +5,22 @@ from player import *
 from buildings import *
 from soldier import *
 from location import *
+from pygame import mixer, time
+
+
+def play_music():
+    sound_file = "SoundFX/theme.mp3"
+    # set volume from 0 to 1.0
+    volume = 0.9
+    freq = 44100     # audio CD quality
+    bitsize = -16    # unsigned 16 bit
+    channels = 2     # 1 is mono, 2 is stereo
+    buffer = 2048    # number of samples (experiment for good sound)
+    mixer.init(freq, bitsize, channels, buffer)
+
+    mixer.music.set_volume(volume)
+    mixer.music.load(sound_file)
+    mixer.music.play()
 
 def exitfromgame():
     exit()
@@ -19,6 +35,8 @@ def settings():
     print "settings"
 
 def play():
+
+    mixer.music.stop()
     hide()
 
     
@@ -32,6 +50,8 @@ def play():
 
     canvasLeft.pack(side = LEFT)
     canvasRight.pack(side = RIGHT)
+
+
 
     
     #canvasplay.create_rectangle(0, 0, ws, hs)
@@ -142,11 +162,15 @@ def play():
     def dispShow(event):
         root.after_cancel(call)
         canvasplay.pack_forget()
+        play_music()
         show(event)
+        
 
     root.bind("<Escape>", dispShow)
 
 root = Tk()
+
+play_music()
 
 ws = root.winfo_screenwidth()
 hs = root.winfo_screenheight()
@@ -269,5 +293,8 @@ Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
 
 '''
+
+
+
 
 root.mainloop()
