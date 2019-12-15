@@ -64,8 +64,7 @@ class Soldier:
     __cost = 100
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, cost, image_id):
-    
+         health, attack, defense, cost, image_id, textHpId):
          self.__player = player
          self.__location = location
          self.__attack = attack
@@ -74,6 +73,7 @@ class Soldier:
          self.__health = health
          self.__cost = cost
          self.__image_id = image_id
+         self.__textHpId = textHpId
     
     
     def getLocation(self):
@@ -81,6 +81,9 @@ class Soldier:
 
     def getImageId(self):
         return self.__image_id
+    
+    def getTextHpId(self):
+        return self.__textHpId
 
     def getDirection(self):
         return self.__direction
@@ -110,6 +113,9 @@ class Soldier:
 
     def setImageId(self, image_id):
         self.__image_id = image_id
+
+    def setTextHpId(self, textHpId):
+        self.__textHpId = textHpId
 
     def setDirection(self, cost):
         self.__cost = cost
@@ -187,9 +193,9 @@ class Swordsman(Soldier):
     __radius = 2
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost, image_id):
+         health, attack, defense, radius, cost, image_id, textHpId):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost, image_id)
+         health, attack, defense, cost, image_id, textHpId)
         self.__radius = radius
 
 class Archer(Soldier):
@@ -197,9 +203,9 @@ class Archer(Soldier):
     __radius = 5
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost, image_id):
+         health, attack, defense, radius, cost, image_id, textHpId):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost, image_id)
+         health, attack, defense, cost, image_id, textHpId)
         self.__radius = radius
 
 class Mag(Soldier):
@@ -207,9 +213,9 @@ class Mag(Soldier):
     __radius = 6
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost, image_id):
+         health, attack, defense, radius, cost, image_id, textHpId):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost, image_id)
+         health, attack, defense, cost, image_id, textHpId)
         self.__radius = radius
 
 if __name__ == "__main__":
