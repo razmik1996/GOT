@@ -87,8 +87,10 @@ def play():
 
     def createArcherP1():
         if (player1.getMoney() >= 100):
-            image_id1 = canvasplay.create_image(BuildLocalArcherP1.getX() * perPxlx, BuildLocalArcherP1.getY()*perPxly, image = imgArcherLeft)
-            solder = Archer(player1, BuildLocalArcherP1, Direction.EAST, 100, 10, 2, 3, 100, image_id1)
+            newArcherLocationX = BuildLocalArcherP1.getX()
+            newArcherLocationY = BuildLocalArcherP1.getY()
+            image_id1 = canvasplay.create_image(newArcherLocationX * perPxlx, newArcherLocationY*perPxly, image = imgArcherLeft)
+            solder = Archer(player1, Location(newArcherLocationX, newArcherLocationY), Direction.EAST, 100, 10, 2, 3, 100, image_id1)
             listSoldersP1.append(solder)
             player1.minusMoney(100)
         else:
@@ -96,8 +98,10 @@ def play():
 
     def createArcherP2():
         if (player2.getMoney() >= 100):
-            image_id1 = canvasplay.create_image(BuildLocalArcherP2.getX() * perPxlx, BuildLocalArcherP2.getY()*perPxly, image = imgArcherRight)
-            solder = Archer(player2, BuildLocalArcherP2, Direction.WEST, 100, 10, 2, 3, 100, image_id1)
+            newArcherLocationX = BuildLocalArcherP2.getX()
+            newArcherLocationY = BuildLocalArcherP2.getY()
+            image_id1 = canvasplay.create_image(newArcherLocationX * perPxlx, newArcherLocationY * perPxly, image = imgArcherRight)
+            solder = Archer(player2, Location(newArcherLocationX, newArcherLocationY), Direction.WEST, 100, 10, 2, 3, 100, image_id1)
             listSoldersP2.append(solder)
             player2.minusMoney(100)
         else:
@@ -105,8 +109,10 @@ def play():
 
     def createSwordsmanP1():
         if (player1.getMoney() >= 200):
-            image_id1 = canvasplay.create_image(BuildLocalSwordsmanP1.getX() * perPxlx, BuildLocalSwordsmanP1.getY()*perPxly, image = imgSwordsmanLeft)
-            solder = Swordsman(player1, BuildLocalSwordsmanP1, Direction.EAST, 120, 15, 5, 1, 200, image_id1)
+            newSwordsmanLocationX = BuildLocalSwordsmanP1.getX()
+            newSwordsmanLocationY = BuildLocalSwordsmanP1.getY()
+            image_id1 = canvasplay.create_image(newSwordsmanLocationX * perPxlx, newSwordsmanLocationY * perPxly, image = imgSwordsmanLeft)
+            solder = Swordsman(player1, Location(newSwordsmanLocationX, newSwordsmanLocationY), Direction.EAST, 120, 15, 5, 1, 200, image_id1)
             listSoldersP1.append(solder)
             player1.minusMoney(200)
         else:
@@ -114,8 +120,10 @@ def play():
 
     def createSwordsmanP2():
         if (player2.getMoney() >= 200):
-            image_id1 = canvasplay.create_image(BuildLocalSwordsmanP2.getX() * perPxlx, BuildLocalSwordsmanP2.getY()*perPxly, image = imgSwordsmanRight)
-            solder = Swordsman(player2, BuildLocalSwordsmanP2, Direction.WEST, 120, 15, 5, 1, 200, image_id1)
+            newSwordsmanLocationX = BuildLocalSwordsmanP2.getX()
+            newSwordsmanLocationY = BuildLocalSwordsmanP2.getY()
+            image_id1 = canvasplay.create_image(newSwordsmanLocationX * perPxlx, newSwordsmanLocationY * perPxly, image = imgSwordsmanRight)
+            solder = Swordsman(player2, Location(newSwordsmanLocationX, newSwordsmanLocationY), Direction.WEST, 120, 15, 5, 1, 200, image_id1)
             listSoldersP2.append(solder)
             player2.minusMoney(200)
         else:
@@ -123,8 +131,10 @@ def play():
 
     def createMagP1():
         if (player1.getMoney() >= 300):
-            image_id1 = canvasplay.create_image(BuildLocalMagP1.getX() * perPxlx, BuildLocalMagP1.getY()*perPxly, image = imgMagLeft)
-            solder = Mag(player1, BuildLocalMagP1, Direction.EAST, 50, 25, 1, 2, 300, image_id1)
+            newMagLocationX = BuildLocalMagP1.getX()
+            newMagLocationY = BuildLocalMagP1.getY()
+            image_id1 = canvasplay.create_image(newMagLocationX * perPxlx, newMagLocationY*perPxly, image = imgMagLeft)
+            solder = Mag(player1, Location(newMagLocationX, newMagLocationY), Direction.EAST, 50, 25, 1, 2, 300, image_id1)
             listSoldersP1.append(solder)
             player1.minusMoney(300)
         else:
@@ -132,8 +142,10 @@ def play():
 
     def createMagP2():
         if (player2.getMoney() >= 300):
-            image_id1 = canvasplay.create_image(BuildLocalMagP2.getX() * perPxlx, BuildLocalMagP2.getY()*perPxly, image = imgMagRight)
-            solder = Mag(player2, BuildLocalMagP2, Direction.WEST, 50, 25, 1, 2, 300, image_id1)
+            newMagLocationX = BuildLocalMagP2.getX()
+            newMagLocationY = BuildLocalMagP2.getY()
+            image_id1 = canvasplay.create_image(newMagLocationX * perPxlx, newMagLocationY*perPxly, image = imgMagRight)
+            solder = Mag(player2, Location(newMagLocationX, newMagLocationY), Direction.WEST, 50, 25, 1, 2, 300, image_id1)
             listSoldersP2.append(solder)
             player2.minusMoney(300)
         else:
@@ -204,22 +216,47 @@ def play():
     canvasplay.create_image(perPxlx * BuildLocalMagP2.getX(), perPxly * BuildLocalMagP2.getY(), image = imgBuildMag, anchor=NW)
     
     global text_id1, text_id2
-
+    #START FUNCTION_______________________________________________________
     def tickend():
         global text_id1, text_id2
         text_id1 = canvasplay.create_text(ws/6, hs/4, text = str(player1.getMoney()), font = ('Impact', -30), fill = "yellow")
         text_id2 = canvasplay.create_text(5 * ws/6, hs/4, text = str(player2.getMoney()), font = ('Impact', -30), fill = "yellow")
         call = root.after(100, tick)
+    #START FUNCTION END____________________________________________________
 
+    #STEP FUNCTION_________________________________________________________
     def tick():
         global text_id1, text_id2
         player1.getMoney()
         canvasplay.itemconfigure(text_id1, text = str(player1.getMoney()))
         canvasplay.itemconfigure(text_id2, text = str(player2.getMoney()))
         for i in range(0, len(listSoldersP1)):
-            pass
-        call = root.after(1000, tick)
-    
+            tempx = listSoldersP1[i].getLocation().getX()
+            tempy = listSoldersP1[i].getLocation().getY()
+            listSoldersP1[i].move()
+            movingX = listSoldersP1[i].getLocation().getX() - tempx
+            movingY = listSoldersP1[i].getLocation().getY() - tempy
+            canvasplay.move(listSoldersP1[i].getImageId(), movingX * perPxlx, movingY * perPxly)
+            if(listSoldersP1[i].getLocation().getX() < 50):
+                listSoldersP1[i].turn(getRandomDirectionP1())
+            else:
+                listSoldersP1[i].turnRandom()
+            
+        for i in range(0, len(listSoldersP2)):
+            tempx = listSoldersP2[i].getLocation().getX()
+            tempy = listSoldersP2[i].getLocation().getY()
+            listSoldersP2[i].move()
+            movingX = listSoldersP2[i].getLocation().getX() - tempx
+            movingY = listSoldersP2[i].getLocation().getY() - tempy
+            canvasplay.move(listSoldersP2[i].getImageId(), movingX * perPxlx, movingY * perPxly)
+            if(listSoldersP2[i].getLocation().getX() > 50):
+                listSoldersP2[i].turn(getRandomDirectionP2())
+            else:
+                listSoldersP2[i].turnRandom()
+
+        call = root.after(500, tick)
+    #STEP END_______________________________________________________________
+
     call = root.after(100, tickend)
 
     def dispShow(event):
@@ -362,8 +399,4 @@ Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
 
 '''
-
-
-
-
 root.mainloop()

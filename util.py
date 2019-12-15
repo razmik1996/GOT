@@ -35,4 +35,26 @@ def getRandomDirection():
         7:Direction.WESTSOUTH,
         8:Direction.WESTNORTH
     }
-    return switch.get(rand,0)
+    return switch.get(rand)
+
+def getRandomDirectionP1():
+    rand = random.randint(1,5)
+    switch = {
+        1:Direction.EAST,
+        2:Direction.NORTH,
+        3:Direction.SOUTH,
+        4:Direction.EASTNORTH,
+        5:Direction.EASTSOUTH,
+    }
+    return switch.get(rand)
+
+def getRandomDirectionP2():
+    rand = random.randint(1,5)
+    switch = {
+        1:Direction.WEST,
+        2:Direction.NORTH,
+        3:Direction.SOUTH,
+        4:Direction.WESTSOUTH,
+        5:Direction.WESTNORTH
+    }
+    return switch.get(rand)
