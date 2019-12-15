@@ -16,6 +16,9 @@ def show(event):
 def hide():
     canvas.pack_forget()
 
+def settings():
+    print "settings"
+
 def play():
     hide()
     canvasplay = Canvas(root)
@@ -82,7 +85,7 @@ canvas = Canvas(root)
 root.title("Game Of Thrones")
 canvas.pack(expand = YES, fill = BOTH)
 
-canvasInner = Canvas(canvas, border = 0, borderwidth = 0)
+canvasInner = Canvas(canvas,highlightthickness=0, border = 0, borderwidth = 0)
 
 #frameBg = Image.open("Sprites/GUI/button.png")
 #frameBg = frameBg.resize((ws, hs))
@@ -96,28 +99,26 @@ canvas.create_image(0, 0, image = backgroundImage, anchor = NW)
 canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, height = 14*hs/20)
 
 
-imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormal.png")
-imgPlayNormal = imgPlayNormal.subsample(3, 3)
-imgPlayHower = PhotoImage(file = "Sprites/GUI/playHower.png")
-imgPlayHower = imgPlayHower.subsample(3, 5)
+imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormalMenu.png")
+imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormalMenu.png")
+imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormalMenu.png")
 
-imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormal.png")
-imgSettingsNormal = imgSettingsNormal.subsample(3, 3)
-imgSettingsHower = PhotoImage(file = "Sprites/GUI/settingsHover.png")
-imgSettingsHower = imgSettingsHower.subsample(3, 5)
+Button1 = Button(canvasInner, activebackground = '#101110',
+                bg = '#101110', highlightthickness = 0,
+                image = imgPlayNormal, border = 0, 
+                borderwidth = 0, command = play).pack(side = TOP)
 
-imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormal.png")
-imgQuitNormal = imgQuitNormal.subsample(3, 3)
-imgQuitHower = PhotoImage(file = "Sprites/GUI/quitHover.png")
-imgQuitHower = imgQuitHower.subsample(3, 5)
 
-Button1 = Button(canvasInner, image = imgPlayNormal, border =0, command = play)
-Button1.pack(side = TOP)
 
-Button2 = Button(canvasInner, image = imgSettingsNormal, borderwidth=0)
-Button2.pack(side = TOP)
+Button2 = Button(canvasInner, activebackground = '#2b2d2f', 
+                bg = '#2b2d2f', highlightthickness = 0, 
+                image = imgSettingsNormal, border = 0, 
+                borderwidth = 0, command = settings).pack(side = TOP)
 
-Button3 = Button(canvasInner, image = imgQuitNormal, borderwidth=0, command = exitfromgame)
-Button3.pack(side = TOP)
+
+Button3 = Button(canvasInner,activebackground = '#2b2d2f',
+                bg = '#2b2d2f',highlightthickness = 0, 
+                image = imgQuitNormal, border = 0,
+                borderwidth = 0, command = exitfromgame).pack(side = TOP)
 
 root.mainloop()
