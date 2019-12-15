@@ -142,7 +142,7 @@ canvas.create_image(0, 0, image = backgroundImage, anchor = NW)
 #canvasInner.create_image(0, 0, image = frameBg, anchor = NW)
 canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, height = 14*hs/20)
 
-<<<<<<< HEAD
+
 
 imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormalMenu.png")
 imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormalMenu.png")
@@ -153,8 +153,18 @@ Button1 = Button(canvasInner, activebackground = '#101110',
                 image = imgPlayNormal, border = 0, 
                 borderwidth = 0, command = play).pack(side = TOP)
 
+Button2 = Button(canvasInner, activebackground = '#2b2d2f', 
+                bg = '#2b2d2f', highlightthickness = 0, 
+                image = imgSettingsNormal, border = 0, 
+                borderwidth = 0, command = settings).pack(side = TOP)
 
-=======
+Button3 = Button(canvasInner,activebackground = '#2b2d2f',
+                bg = '#2b2d2f',highlightthickness = 0, 
+                image = imgQuitNormal, border = 0,
+                borderwidth = 0, command = exitfromgame).pack(side = TOP)
+                
+
+'''
 imgPlayNormal = Image.open("Sprites/GUI/playNormal.png")
 imgPlayNormal = imgPlayNormal.resize((17 * perPxlx, 25 * perPxly))
 imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
@@ -172,22 +182,12 @@ imgQuitNormal = imgQuitNormal.resize((17 * perPxlx, 25 * perPxly))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 imgQuitHower = PhotoImage(file = "Sprites/GUI/quitHover.png")
 imgQuitHower = imgQuitHower.subsample(3, 5)
->>>>>>> 7435043d6c0ee222717c3fd09234458bad326e68
 
-Button2 = Button(canvasInner, activebackground = '#2b2d2f', 
-                bg = '#2b2d2f', highlightthickness = 0, 
-                image = imgSettingsNormal, border = 0, 
-                borderwidth = 0, command = settings).pack(side = TOP)
-
-<<<<<<< HEAD
-=======
 Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
->>>>>>> 7435043d6c0ee222717c3fd09234458bad326e68
 
-Button3 = Button(canvasInner,activebackground = '#2b2d2f',
-                bg = '#2b2d2f',highlightthickness = 0, 
-                image = imgQuitNormal, border = 0,
-                borderwidth = 0, command = exitfromgame).pack(side = TOP)
+'''
+
+
 
 root.mainloop()
