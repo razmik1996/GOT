@@ -82,6 +82,8 @@ def play():
     #FUNCTION SOLDERS__________________________________________
     listSoldersP1 = []
     listSoldersP2 = []
+    textp1 = canvasplay.create_text(ws/2, hs/8, text = "", font = ('Impact', -25), fill = "grey")
+    textp2 = canvasplay.create_text(ws/2, 7*hs/8, text = "", font = ('Impact', -25), fill = "grey")
 
     def createArcherP1():
         if (player1.getMoney() >= 100):
@@ -90,8 +92,7 @@ def play():
             listSoldersP1.append(solder)
             player1.minusMoney(100)
         else:
-            canvasplay.create_text(ws/2, hs/8, text = "Player1 don't have enough money you need 100 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp1, text = "Player1 don't have enough money you need 100 coin")
 
     def createArcherP2():
         if (player2.getMoney() >= 100):
@@ -100,8 +101,7 @@ def play():
             listSoldersP2.append(solder)
             player2.minusMoney(100)
         else:
-            canvasplay.create_text(ws/2, 7*hs/8, text = "Player2 don't have enough money you need 100 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp2, text = "Player2 don't have enough money you need 100 coin")
 
     def createSwordsmanP1():
         if (player1.getMoney() >= 200):
@@ -110,8 +110,7 @@ def play():
             listSoldersP1.append(solder)
             player1.minusMoney(200)
         else:
-            canvasplay.create_text(ws/2, hs/8, text = "Player1 don't have enough money you need 200 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp1, text = "Player1 don't have enough money you need 200 coin")
 
     def createSwordsmanP2():
         if (player2.getMoney() >= 200):
@@ -120,8 +119,7 @@ def play():
             listSoldersP2.append(solder)
             player2.minusMoney(200)
         else:
-            canvasplay.create_text(ws/2, 7*hs/8, text = "Player2 don't have enough money you need 200 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp2, text = "Player2 don't have enough money you need 200 coin")
 
     def createMagP1():
         if (player1.getMoney() >= 300):
@@ -130,8 +128,7 @@ def play():
             listSoldersP1.append(solder)
             player1.minusMoney(300)
         else:
-            canvasplay.create_text(ws/2, hs/8, text = "Player1 don't have enough money you need 300 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp1, text = "Player1 don't have enough money you need 300 coin")
 
     def createMagP2():
         if (player2.getMoney() >= 300):
@@ -140,8 +137,7 @@ def play():
             listSoldersP2.append(solder)
             player2.minusMoney(300)
         else:
-            canvasplay.create_text(ws/2, 7*hs/8, text = "Player2 don't have enough money you need 300 coin",\
-                font = ('Impact', -25), fill = "grey")
+            canvasplay.itemconfigure(textp2, text = "Player2 don't have enough money you need 300 coin")
     #FUNCTION SOLDERS END______________________________________
 
     #BUTTONS________________________________________________
