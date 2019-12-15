@@ -35,6 +35,8 @@ def settings():
     print "settings"
 
 def play():
+
+    mixer.music.stop()
     hide()
     canvasplay = Canvas(root, highlightthickness=0)
     canvasplay.pack(expand = YES, fill = BOTH)
@@ -121,14 +123,15 @@ def play():
 
     def dispShow(event):
         canvasplay.pack_forget()
+        play_music()
         show(event)
+        
 
     root.bind("<Escape>", dispShow)
 
 root = Tk()
 
-# check if playback has finished
-
+play_music()
 
 ws = root.winfo_screenwidth()
 hs = root.winfo_screenheight()
@@ -252,7 +255,7 @@ Button2.pack(side = TOP)
 
 '''
 
-play_music()
+
 
 
 root.mainloop()
