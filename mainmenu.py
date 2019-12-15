@@ -59,32 +59,32 @@ def play():
     #BUTTONSEND_______________________________________________
 
     #Build Buildings__________________________________________
-    archerBuildingP1 = ArcherBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
+    archerBuildingP1 = ArcherBuilding(player1, Location(random.randint(10,40),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalArcherP1 = archerBuildingP1.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalArcherP1.getX(), perPxly * BuildLocalArcherP1.getY(), image = imgBuildArcher, anchor=NW)
 
-    archerBuildingP2 = ArcherBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
+    archerBuildingP2 = ArcherBuilding(player2, Location(random.randint(60,90),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalArcherP2 = archerBuildingP2.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalArcherP2.getX(), perPxly * BuildLocalArcherP2.getY(), image = imgBuildArcher, anchor=NW)
 
-    swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
+    swordsmanBuildingP1 = SwordsmanBuilding(player1, Location(random.randint(10,40),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalSwordsmanP1 = swordsmanBuildingP1.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalSwordsmanP1.getX(), perPxly * BuildLocalSwordsmanP1.getY(), image = imgBuildSwordsman, anchor=NW)
 
-    swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
+    swordsmanBuildingP2 = SwordsmanBuilding(player2, Location(random.randint(60,90),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalSwordsmanP2 = swordsmanBuildingP2.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalSwordsmanP2.getX(), perPxly * BuildLocalSwordsmanP2.getY(), image = imgBuildSwordsman, anchor=NW)
 
-    magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(5, 95)), 100,\
+    magBuildingP1 = MagBuilding(player1, Location(random.randint(10,40),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalMagP1 = magBuildingP1.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalMagP1.getX(), perPxly * BuildLocalMagP1.getY(), image = imgBuildMag, anchor=NW)
 
-    magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(5, 95)), 100,\
+    magBuildingP2 = MagBuilding(player2, Location(random.randint(60,90),random.randint(25, 85)), 100,\
         10, 5, 20)
     BuildLocalMagP2 = magBuildingP2.getLocation()
     canvasplay.create_image(perPxlx * BuildLocalMagP2.getX(), perPxly * BuildLocalMagP2.getY(), image = imgBuildMag, anchor=NW)
@@ -147,10 +147,19 @@ canvas.create_image(0, 0, image = backgroundImage, anchor = NW)
 canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, height = 14*hs/20)
 
 
+#BUTTONS IMAGE__________________________________________________
+imgPlayNormal = Image.open("Sprites/GUI/playNormalMenu.png")
+imgPlayNormal = imgPlayNormal.resize((19 * perPxlx, 26 * perPxly))
+imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
 
-imgPlayNormal = PhotoImage(file = "Sprites/GUI/playNormalMenu.png")
-imgSettingsNormal = PhotoImage(file = "Sprites/GUI/settingsNormalMenu.png")
-imgQuitNormal = PhotoImage(file = "Sprites/GUI/quitNormalMenu.png")
+imgSettingsNormal = Image.open("Sprites/GUI/settingsNormalMenu.png")
+imgSettingsNormal = imgSettingsNormal.resize((19 * perPxlx, 26 * perPxly))
+imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
+
+imgQuitNormal = Image.open("Sprites/GUI/quitNormalMenu.png")
+imgQuitNormal = imgQuitNormal.resize((19 * perPxlx, 26 * perPxly))
+imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
+#BUTTONS IMAGE END________________________________________________
 
 imgBattlefield = Image.open("Sprites/battlefield.png")
 imgBattlefield = imgBattlefield.resize((ws, hs))
