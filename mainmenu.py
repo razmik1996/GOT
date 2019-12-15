@@ -125,7 +125,7 @@ imgMagLeft = imgMag.subsample(5, 5)
 imgMagRight = imgMag.subsample(-5, 5)
 
 root.attributes("-fullscreen", True)
-canvas = Canvas(root, border = 0)
+canvas = Canvas(root, border = 0, highlightthickness = 0)
 root.title("Game Of Thrones")
 canvas.pack(expand = YES, fill = BOTH)
 
@@ -162,7 +162,7 @@ Button3 = Button(canvasInner,activebackground = '#2b2d2f',
                 bg = '#2b2d2f',highlightthickness = 0, 
                 image = imgQuitNormal, border = 0,
                 borderwidth = 0, command = exitfromgame).pack(side = TOP)
-                
+
 
 '''
 imgPlayNormal = Image.open("Sprites/GUI/playNormal.png")
@@ -187,7 +187,5 @@ Button2 = Button(canvasInner, image = imgSettingsNormal, border=0)
 Button2.pack(side = TOP)
 
 '''
-
-
 
 root.mainloop()
