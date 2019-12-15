@@ -149,15 +149,15 @@ canvas.create_window(ws/2 + ws/6, hs/2, window = canvasInner, width = ws/6, heig
 
 #BUTTONS IMAGE__________________________________________________
 imgPlayNormal = Image.open("Sprites/GUI/playNormalMenu.png")
-imgPlayNormal = imgPlayNormal.resize((19 * perPxlx, 26 * perPxly))
+imgPlayNormal = imgPlayNormal.resize((ws/6, int(hs/4.21875)))
 imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
 
 imgSettingsNormal = Image.open("Sprites/GUI/settingsNormalMenu.png")
-imgSettingsNormal = imgSettingsNormal.resize((19 * perPxlx, 26 * perPxly))
+imgSettingsNormal = imgSettingsNormal.resize((ws/6, int(hs/4.21875)))
 imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
 
 imgQuitNormal = Image.open("Sprites/GUI/quitNormalMenu.png")
-imgQuitNormal = imgQuitNormal.resize((19 * perPxlx, 26 * perPxly))
+imgQuitNormal = imgQuitNormal.resize((ws/6, int(hs/4.5)))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 #BUTTONS IMAGE END________________________________________________
 
