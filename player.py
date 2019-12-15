@@ -49,7 +49,8 @@ class Player:
     def getColor(self):
         return self.__color
 
-
+    def minusMoney(self, howMuch):
+        self.__money -= howMuch
 
     def setId(self, id):
         self.__id = id

@@ -64,7 +64,7 @@ class Soldier:
     __cost = 100
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, cost):
+         health, attack, defense, cost, image_id):
     
          self.__player = player
          self.__location = location
@@ -73,10 +73,14 @@ class Soldier:
          self.__direction = direction
          self.__health = health
          self.__cost = cost
+         self.__image_id = image_id
     
     
     def getLocation(self):
         return self.__location
+
+    def getImageId(self):
+        return self.__image_id
 
     def getDirection(self):
         return self.__direction
@@ -103,6 +107,9 @@ class Soldier:
 
     def setDirection(self, direction):
         self.__direction = direction
+
+    def setImageId(self, image_id):
+        self.__image_id = image_id
 
     def setDirection(self, cost):
         self.__cost = cost
@@ -180,9 +187,9 @@ class Swordsman(Soldier):
     __radius = 2
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost):
+         health, attack, defense, radius, cost, image_id):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost)
+         health, attack, defense, cost, image_id)
         self.__radius = radius
 
 class Archer(Soldier):
@@ -190,9 +197,9 @@ class Archer(Soldier):
     __radius = 5
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost):
+         health, attack, defense, radius, cost, image_id):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost)
+         health, attack, defense, cost, image_id)
         self.__radius = radius
 
 class Mag(Soldier):
@@ -200,9 +207,9 @@ class Mag(Soldier):
     __radius = 6
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius, cost):
+         health, attack, defense, radius, cost, image_id):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense, cost)
+         health, attack, defense, cost, image_id)
         self.__radius = radius
 
 if __name__ == "__main__":
