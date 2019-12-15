@@ -18,7 +18,7 @@ class Buildings:
             __init__(self, player, location, health, atack, spawnTime,
                     atackDistance, defense)
     """
-    __player = Player("", "", 0, Country.ENGLAND, Color.RED)
+    __player = Player("", "", 0, Country.ENGLAND, Color.RED, 1000)
     __location = Location(0, 0)
     __health = 100
     __atack = 5

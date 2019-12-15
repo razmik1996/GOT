@@ -10,9 +10,10 @@ class Player:
                 (int)       __rating
                 (Country)   __country
                 (Color)     __color
+                (Money)     __money
 
             Constructors:
-                void __init__(str, str, int, Country, Color)
+                void __init__(str, str, int, Country, Color, money)
     '''
 
     __id = ""
@@ -20,16 +21,21 @@ class Player:
     __rating = 0
     __country = Country.ENGLAND
     __color = Color.RED
+    __money = 1000
 
-    def __init__(self, id, name, rating, country, color):
+    def __init__(self, id, name, rating, country, color, money):
         self.__id = id
         self.__name = name
         self.__rating = rating
         self.__country = country
         self.__color = color
+        self.__money = money
 
     def getId(self):
         return self.__id
+
+    def getMoney(self):
+        return self.__money
 
     def getName(self):
         return self.__name
@@ -47,6 +53,9 @@ class Player:
 
     def setId(self, id):
         self.__id = id
+
+    def setMoney(self, money):
+        self.__money = money
 
     def setName(self, name):
         self.__name = name

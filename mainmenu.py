@@ -20,6 +20,8 @@ def settings():
 
 def play():
     hide()
+
+    
     canvasplay = Canvas(root, highlightthickness=0)
     canvasplay.pack(expand = YES, fill = BOTH)
     
@@ -34,27 +36,57 @@ def play():
     
     #canvasplay.create_rectangle(0, 0, ws, hs)
 
-    player1 = Player("1","Razmik",0,Country.ARMENIA,Color.BLUE)
-    player2 = Player("2","Levon",0,Country.ENGLAND,Color.RED)
+    player1 = Player("1","Razmik",0,Country.ARMENIA,Color.BLUE, 1000)
+    player2 = Player("2","Levon",0,Country.ENGLAND,Color.RED, 1000)
     location1 = Location(5,5)
 
+    #FUNCTION SOLDERS__________________________________________
+    listSoldersP1 = []
+    listSoldersP2 = []
+
+    def createArcherP1():
+        solder = Archer(player1, BuildLocalArcherP1, Direction.EAST, 100, 10, 2, 3, 100)
+        listSoldersP1.append(solder)
+
+    def createArcherP2():
+        solder = Archer(player2, BuildLocalArcherP2, Direction.WEST, 100, 10, 2, 3, 100)
+        listSoldersP2.append(solder)
+
+    def createSwordsmanP1():
+        solder = Swordsman(player1, BuildLocalSwordsmanP1, Direction.EAST, 120, 15, 5, 1, 200)
+        listSoldersP1.append(solder)
+
+    def createSwordsmanP2():
+        solder = Swordsman(player2, BuildLocalSwordsmanP2, Direction.WEST, 120, 15, 5, 1, 200)
+        listSoldersP2.append(solder)
+
+    def createMagP1():
+        solder = Mag(player1, BuildLocalMagP1, Direction.EAST, 50, 25, 1, 2, 300)
+        listSoldersP1.append(solder)
+
+    def createMagP2():
+        solder = Mag(player2, BuildLocalMagP2, Direction.WEST, 50, 25, 1, 2, 300)
+        listSoldersP2.append(solder)
+
+    #FUNCTION SOLDERS END______________________________________
+
     #BUTTONS________________________________________________
-    archerSoldier1 = Button(canvasLeft, image = imgArcherLeft)
+    archerSoldier1 = Button(canvasLeft, image = imgArcherLeft, command = createArcherP1)
     archerSoldier1.pack(side = TOP)
 
-    swordsSoldier1 = Button(canvasLeft, image = imgSwordsmanLeft)
+    swordsSoldier1 = Button(canvasLeft, image = imgSwordsmanLeft, command = createArcherP2)
     swordsSoldier1.pack(side = TOP)
 
-    magSoldier1 = Button(canvasLeft, image = imgMagLeft)
+    magSoldier1 = Button(canvasLeft, image = imgMagLeft, command = createSwordsmanP1)
     magSoldier1.pack(side = TOP)
 
-    archerSoldier2 = Button(canvasRight, image = imgArcherRight)
+    archerSoldier2 = Button(canvasRight, image = imgArcherRight, command = createSwordsmanP2)
     archerSoldier2.pack(side = TOP)
 
-    swordsSoldier2 = Button(canvasRight, image = imgSwordsmanRight)
+    swordsSoldier2 = Button(canvasRight, image = imgSwordsmanRight, command = createMagP1)
     swordsSoldier2.pack(side = TOP)
 
-    magSoldier2 = Button(canvasRight, image = imgMagRight)
+    magSoldier2 = Button(canvasRight, image = imgMagRight, command = createMagP2)
     magSoldier2.pack(side = TOP)
     #BUTTONSEND_______________________________________________
 
@@ -101,7 +133,14 @@ def play():
         BuildLocalMagP2.setY(random.randint(25, 85))
     canvasplay.create_image(perPxlx * BuildLocalMagP2.getX(), perPxly * BuildLocalMagP2.getY(), image = imgBuildMag, anchor=NW)
 
+    def tick():
+        print listSoldersP1, listSoldersP2
+        call = root.after(2000, tick)
+
+    call = root.after(2000, tick)
+
     def dispShow(event):
+        root.after_cancel(call)
         canvasplay.pack_forget()
         show(event)
 
@@ -182,7 +221,7 @@ imgSettingsNormal = imgSettingsNormal.resize((ws/6, int(hs/4.21875)))
 imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
 
 imgQuitNormal = Image.open("Sprites/GUI/quitNormalMenu.png")
-imgQuitNormal = imgQuitNormal.resize((ws/6, int(hs/4.5)))
+imgQuitNormal = imgQuitNormal.resize((ws/6, int(hs/4.21875)))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 #BUTTONS IMAGE END________________________________________________
 

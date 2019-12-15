@@ -13,10 +13,11 @@ class Soldier:
                 (int)       __health
                 (int)       __atack
                 (int)       __defense
+                (int)       __cost
 
-            Constructors:
+         Constructors:
                 void __init__(Player, Location, Direction,
-                                int, int, int)
+                                int, int, int, int)
             Setters:
                 void setPlayer(Player)
                 void setLocation(Location)
@@ -58,10 +59,12 @@ class Soldier:
     __defense = 0
     
     '''Solder knows to which player it belongs.'''
-    __player = Player("", "", 0, Country.ENGLAND, Color.RED)
+    __player = Player("", "", 0, Country.ENGLAND, Color.RED, 1000)
+
+    __cost = 100
 
     def __init__(self, player, location, direction,\
-         health, attack, defense):
+         health, attack, defense, cost):
     
          self.__player = player
          self.__location = location
@@ -69,6 +72,7 @@ class Soldier:
          self.__defense = defense
          self.__direction = direction
          self.__health = health
+         self.__cost = cost
     
     
     def getLocation(self):
@@ -76,6 +80,9 @@ class Soldier:
 
     def getDirection(self):
         return self.__direction
+
+    def getCost(self):
+        return self.__cost
 
     def getHealth(self):
         return self.__health    
@@ -96,6 +103,9 @@ class Soldier:
 
     def setDirection(self, direction):
         self.__direction = direction
+
+    def setDirection(self, cost):
+        self.__cost = cost
 
     def setHealth(self, health):
         self.__health = health   
@@ -170,9 +180,9 @@ class Swordsman(Soldier):
     __radius = 2
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius):
+         health, attack, defense, radius, cost):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense)
+         health, attack, defense, cost)
         self.__radius = radius
 
 class Archer(Soldier):
@@ -180,9 +190,9 @@ class Archer(Soldier):
     __radius = 5
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius):
+         health, attack, defense, radius, cost):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense)
+         health, attack, defense, cost)
         self.__radius = radius
 
 class Mag(Soldier):
@@ -190,9 +200,9 @@ class Mag(Soldier):
     __radius = 6
 
     def __init__(self, player, location, direction,\
-         health, attack, defense, radius):
+         health, attack, defense, radius, cost):
         Soldier.__init__(self,player, location, direction,\
-         health, attack, defense)
+         health, attack, defense, cost)
         self.__radius = radius
 
 if __name__ == "__main__":
@@ -208,4 +218,3 @@ if __name__ == "__main__":
     sw = Swordsman(Player("1234", "Arthur", 100, Country.FRANCE, Color.BLUE), \
         Location(10,54), getRandomDirection(), 199, 128, 88, 2)
     sw.printSoldier()
-    
