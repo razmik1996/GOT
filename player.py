@@ -71,9 +71,9 @@ class Player:
         self.__color = color
 
     def printPlayer(self):
-        print "\nPlayer settings:"
-        print "\nId =", self.getId() 
-        print "Name =", self.getName() 
-        print "Rating =", self.getRating() 
-        print "Country =", self.getCountry() 
-        print "Color =",self.getColor()
+        print("\nPlayer settings:")
+        print("\nId =", self.getId())
+        print("Name =", self.getName())
+        print("Rating =", self.getRating()) 
+        print("Country =", self.getCountry()) 
+        print("Color =",self.getColor())

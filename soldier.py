@@ -172,7 +172,7 @@ class Soldier:
             self.__location.setY(self.__location.getY() + 1)
             self.__location.setX(self.__location.getX() - 1)
         else:
-            print "Invalid direction"
+            print("Invalid direction")
 
     def printSoldier(self):
 
@@ -180,12 +180,12 @@ class Soldier:
         p.printPlayer()
 
         l = self.getLocation()
-        print "\nLocation = (",l.getX(), l.getY(),")"
+        print("\nLocation = (" + l.getX() + l.getY() + ")")
         
-        print "Direction =",self.getDirection()        
-        print "Health =",self.getHealth()
-        print "Attack =",self.getAttack()
-        print "Defense =",self.getDefense()
+        print("Direction =",self.getDirection())       
+        print("Health =",self.getHealth())
+        print("Attack =",self.getAttack())
+        print("Defense =",self.getDefense())
         
     
 class Swordsman(Soldier):

@@ -1,5 +1,5 @@
 #!/usr/bin/env python
-from Tkinter import *
+from tkinter import *
 from PIL import Image, ImageTk
 from player import *
 from buildings import *
@@ -32,7 +32,7 @@ def hide():
     canvas.pack_forget()
 
 def settings():
-    print "settings"
+    print("settings")
 
 def play():
 
@@ -293,15 +293,15 @@ perPxly = hs/100
 
 #BUILDINGS IMAGES OPENING____________________________________________
 imgBuildArcher = Image.open("Sprites/Towers/ArcherTower.png")
-imgBuildArcher = imgBuildArcher.resize((8 * perPxlx, 13 * perPxly))
+imgBuildArcher = imgBuildArcher.resize((int(8 * perPxlx), int(13 * perPxly)))
 imgBuildArcher = ImageTk.PhotoImage(imgBuildArcher)
 
 imgBuildSwordsman = Image.open("Sprites/Towers/Tower2.png")
-imgBuildSwordsman = imgBuildSwordsman.resize((8 * perPxlx, 13 * perPxly))
+imgBuildSwordsman = imgBuildSwordsman.resize((int(8 * perPxlx), int(13 * perPxly)))
 imgBuildSwordsman = ImageTk.PhotoImage(imgBuildSwordsman)
 
 imgBuildMag = Image.open("Sprites/Towers/Tower3.png")
-imgBuildMag = imgBuildMag.resize((8 * perPxlx, 13 * perPxly))
+imgBuildMag = imgBuildMag.resize((int(8 * perPxlx), int(13 * perPxly)))
 imgBuildMag = ImageTk.PhotoImage(imgBuildMag)
 #END BULD IMAGES_____________________________________________________
 #SOLDER IMAGES OPENING________________________________________________
@@ -351,15 +351,15 @@ imgQuitNormal = imgQuitNormal.resize((18 * perPxlx, int(25.5 * perPxly)))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 """
 imgPlayNormal = Image.open("Sprites/GUI/playNormalMenu.png")
-imgPlayNormal = imgPlayNormal.resize((ws/6, int(hs/4.21875)))
+imgPlayNormal = imgPlayNormal.resize((int(ws/6), int(hs/4.21875)))
 imgPlayNormal = ImageTk.PhotoImage(imgPlayNormal)
 
 imgSettingsNormal = Image.open("Sprites/GUI/settingsNormalMenu.png")
-imgSettingsNormal = imgSettingsNormal.resize((ws/6, int(hs/4.21875)))
+imgSettingsNormal = imgSettingsNormal.resize((int(ws/6), int(hs/4.21875)))
 imgSettingsNormal = ImageTk.PhotoImage(imgSettingsNormal)
 
 imgQuitNormal = Image.open("Sprites/GUI/quitNormalMenu.png")
-imgQuitNormal = imgQuitNormal.resize((ws/6, int(hs/4.21875)))
+imgQuitNormal = imgQuitNormal.resize((int(ws/6), int(hs/4.21875)))
 imgQuitNormal = ImageTk.PhotoImage(imgQuitNormal)
 #BUTTONS IMAGE END________________________________________________
 
